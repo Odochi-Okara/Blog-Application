@@ -84,6 +84,7 @@ public class PostServiceImp implements PostService {
         if(person.getFavourite().contains(post)){
             return "Post is already in favourite";
         }
+
         person.getFavourite().add(post);
         userRepository.save(person);
         return  "Post added to favourite";

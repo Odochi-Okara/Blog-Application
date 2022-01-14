@@ -30,7 +30,7 @@ public class Post {
     @Column(nullable = false, columnDefinition = "VARCHAR(45)")
     private String description;
 
-    @ManyToOne
+    @OneToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn
     @JsonBackReference( value = "favourite")
@@ -48,4 +48,10 @@ public class Post {
     @JoinColumn
     private List<Comment> comments;
 
+    public Post(String description, Person person, List<Person> postLikes, List<Comment> comments) {
+        this.description = description;
+        this.person = person;
+        this.postLikes = postLikes;
+        this.comments = comments;
+    }
 }

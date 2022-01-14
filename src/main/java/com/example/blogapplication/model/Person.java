@@ -32,13 +32,13 @@ public class Person {
     @Column(nullable = false, columnDefinition = "VARCHAR(45)")
     private String password;
 
-  @OneToMany(fetch = FetchType.EAGER)
+  @ManyToMany(fetch = FetchType.EAGER)
   @JsonManagedReference( value = "favourite")
   @JoinColumn
   @OnDelete( action =  OnDeleteAction.CASCADE)
   private List<Post> favourite;
 
-    @OneToMany
+    @ManyToMany
 //  @JsonManagedReference (value = "uses")
     @JoinColumn
     @OnDelete(action =  OnDeleteAction.CASCADE)
